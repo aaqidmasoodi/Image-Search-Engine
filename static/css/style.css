@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+    padding-bottom: 50px;
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+
+.card-img-top {
+    background-color: #f1f1f1;
+}
+
+.form-control-lg {
+    height: calc(2.5rem + 8px);
+}

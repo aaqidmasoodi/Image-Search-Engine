@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Results for: "{{ query }}"</h2>
+        <a href="/" class="btn btn-outline-secondary">New Search</a>
+    </div>
+</div>
+
+{% if not results %}
+<div class="alert alert-warning">
+    No images found matching your query.
+</div>
+{% else %}
+<div class="row">
+    {% for doc_id, score in results %}
+    {% set doc = documents[doc_id] %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ doc['image_url'] }}" class="card-img-top" 
+                 alt="{{ doc['title'] }}" 
+                 style="height: 200px; object-fit: contain;">
+            <div class="card-body">
+                <h5 class="card-title">{{ doc['title'] }}</h5>
+                <p class="card-text text-muted">
+                    <small>Score: {{ "%.4f"|format(score) }}</small><br>
+                    <small>Type: {{ doc['filetype']|upper }}</small>
+                </p>
+                {% if doc['text'] %}
+                <p class="card-text">{{ doc['text'][:100] }}...</p>
+                {% endif %}
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{{ doc['image_url'] }}" target="_blank" 
+                   class="btn btn-sm btn-outline-primary">View Image</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

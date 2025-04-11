@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="mb-4">Image Search Engine</h1>
+        
+        <form action="/" method="POST" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="query" class="form-control form-control-lg" 
+                       placeholder="Search for images..." required>
+                <button type="submit" class="btn btn-primary btn-lg">Search</button>
+            </div>
+            
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <label class="form-label">Ranking Model:</label>
+                    <select name="model" class="form-select">
+                        <option value="1">Vector Space Model</option>
+                        <option value="2">BM25</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">File Type:</label>
+                    <select name="filetype" class="form-select">
+                        <option value="">All Types</option>
+                        <option value="jpg">JPG</option>
+                        <option value="png">PNG</option>
+                        <option value="gif">GIF</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        
+        <div class="alert alert-info">
+            <strong>Tip:</strong> Try searching for "computer diagram" or "network photo"
+        </div>
+    </div>
+</div>
+{% endblock %}
