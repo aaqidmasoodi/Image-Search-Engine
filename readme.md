@@ -110,9 +110,6 @@ app.run(host='0.0.0.0', port=5001, debug=True)
 python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
 ```
 
-## License
-MIT License
-
 ## Acknowledgements
 - Wikipedia for image content  
 - NLTK for text processing  
