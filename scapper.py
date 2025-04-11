@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 # Configuration
 WIKI_PAGE = "https://en.wikipedia.org/wiki/Computer_science"  # Starting page
 MAX_IMAGES = 1000  # Target number of images
-DOWNLOAD_DIR = "wiki_images"  # Directory to save images
+DOWNLOAD_DIR = "./static/images"  # Directory to save images
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 # Store crawled data (image URL, alt text, caption, surrounding text)
